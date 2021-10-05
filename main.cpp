@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:32:14 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/04 20:02:51 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/05 18:58:09 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 #include <iostream>
 #include <memory> //std::allocator
 
-#include "./utils.h"
+#include "./utility.hpp"
+#include "./algorithm.hpp"
+#include "./type_traits.hpp"
 #include <algorithm> // std::equal
 #include <vector>	 // std::vector
 #include <string>	 // std::string
