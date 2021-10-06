@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:17:16 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/05 18:57:28 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/06 02:01:58 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ namespace ft
 {
 
     /**
-   *  @brief Struct holding two objects of arbitrary type.
-   *
-   *  @param T1  Type of first object.
-   *  @param T2  Type of second object.
-   */
+     *  @brief Struct holding two objects of arbitrary type.
+     *
+     *  @param T1  Type of first object.
+     *  @param T2  Type of second object.
+     */
     template <class T1, class T2>
-    struct pair
-    {
+    struct pair {
         /// ***Member types***
         typedef T1 first_type;  /// Create an alias "first_type" that refers to T1 type
         typedef T2 second_type; /// Create an alias "seconde type" that refers to T2 type
@@ -34,11 +33,13 @@ namespace ft
         T2 second;
 
         /// ***Members functions***
-        pair() : first(), second() ///Default ctor
-                 {};
+        pair() :
+            first(), second() /// Default ctor
+            {};
 
-        pair(const first_type &a, const second_type &b) : first(a), second(b) /// Initialization ctor
-                                                          {};
+        pair(const first_type &a, const second_type &b) :
+            first(a), second(b) /// Initialization ctor
+            {};
 
         template <class U1, class U2>
         pair(const pair<U1, U2> &p) /// Copy ctor
@@ -49,7 +50,7 @@ namespace ft
 
         pair &operator=(const pair &p) /// Assignation operator
         {
-            first = p.first;
+            first  = p.first;
             second = p.second;
             return *this;
         }
@@ -93,11 +94,11 @@ namespace ft
     }
 
     /**
-   *  @brief A convenience wrapper for creating a pair from two objects.
-   *  @param  x  The first object.
-   *  @param  y  The second object.
-   *  @return   A newly-constructed pair<> object of the appropriate type.
-   */
+     *  @brief A convenience wrapper for creating a pair from two objects.
+     *  @param  x  The first object.
+     *  @param  y  The second object.
+     *  @return   A newly-constructed pair<> object of the appropriate type.
+     */
     template <class T1, class T2>
     ft::pair<T1, T2> make_pair(T1 x, T2 y)
     {

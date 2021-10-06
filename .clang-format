@@ -1,0 +1,52 @@
+BasedOnStyle: LLVM
+UseTab: Never
+IndentWidth: 4
+ColumnLimit: 0
+AccessModifierOffset: -2
+
+AllowShortFunctionsOnASingleLine: Empty
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: AcrossEmptyLines
+AlignConsecutiveDeclarations: AcrossEmptyLines
+AlignConsecutiveMacros: AcrossEmptyLines
+AlignEscapedNewlines: Left
+AlignTrailingComments: true
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterUnion: true
+  AfterExternBlock: true
+
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeWhile: true
+
+  SplitEmptyRecord: false
+  SplitEmptyFunction: false
+  SplitEmptyNamespace: false
+
+BreakBeforeConceptDeclarations: true
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: AfterColon
+AlwaysBreakTemplateDeclarations: Yes
+FixNamespaceComments: true
+IndentWrappedFunctionNames: true
+NamespaceIndentation: All
+
+PointerAlignment: Right
+
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCaseColon: false
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: true
+SpaceInEmptyParentheses: false
