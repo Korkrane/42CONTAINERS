@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:19:36 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/06 02:02:05 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/07 18:11:26 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ namespace ft
     template <class InputIt1, class InputIt2>
     bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2)
     {
-        while (first1 != last1) {
+        while (first1 != last1)
+        {
             // std::cout << *first1 << "&" << *first2 << std::endl;
             if (!(*first1 == *first2))
                 return false;
@@ -40,9 +41,11 @@ namespace ft
     }
 
     template <class InputIt1, class InputIt2, class BinaryPredicate>
-    bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate pred)
+    bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2,
+               BinaryPredicate pred)
     {
-        while (first1 != last1) {
+        while (first1 != last1)
+        {
             if (!pred(*first1, *first2))
                 return false;
             first1++;
@@ -64,9 +67,11 @@ namespace ft
      *  defined by the range [first2,last2).  Returns false otherwise.
      */
     template <class InputIterator1, class InputIterator2>
-    bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2)
+    bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,
+                                 InputIterator2 first2, InputIterator2 last2)
     {
-        while (first1 != last1 && first2 != last2) {
+        while (first1 != last1 && first2 != last2)
+        {
             if (*first1 < *first2)
                 return true;
             else if (*first2 < *first1)
@@ -79,9 +84,12 @@ namespace ft
 
     // Custom one
     template <class InputIterator1, class InputIterator2, class Compare>
-    bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1, InputIterator2 first2, InputIterator2 last2, Compare comp)
+    bool lexicographical_compare(InputIterator1 first1, InputIterator1 last1,
+                                 InputIterator2 first2, InputIterator2 last2,
+                                 Compare comp)
     {
-        while (first1 != last1 && first2 != last2) {
+        while (first1 != last1 && first2 != last2)
+        {
             if (*first1 < *first2)
                 return true;
             else if (comp(first2, *first1))

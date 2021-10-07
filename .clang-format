@@ -1,52 +1,93 @@
+#clang-13-format
 BasedOnStyle: LLVM
-UseTab: Never
+Language: Cpp
 IndentWidth: 4
-ColumnLimit: 0
-AccessModifierOffset: -2
+AccessModifierOffset: -2 #Force the public/private/protected to be 2 on indent
 
-AllowShortFunctionsOnASingleLine: Empty
-
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: Align #multiple ligne proto gonna indent second line arg on the first arg pos
+AlignArrayOfStructures: Right
 AlignConsecutiveAssignments: AcrossEmptyLines
-AlignConsecutiveDeclarations: AcrossEmptyLines
+AlignConsecutiveBitFields: AcrossEmptyLines
+#AlignConsecutiveDeclarations: AcrossEmptyLines #fuck up my protos like this
 AlignConsecutiveMacros: AcrossEmptyLines
 AlignEscapedNewlines: Left
+#AlignOperands: not set yet
 AlignTrailingComments: true
+
+#AllowAllArgumentsOnNextLine: not set yet
+#AllowAllConstructorInitializersOnNextLine: deprecated
+#AllowAllParametersOfDeclarationOnNextLine: not set yet
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+#AllowShortLambdasOnASingleLine: not set yet
+AllowShortLoopsOnASingleLine: false
+
+#AlwaysBreakAfterDefinitionReturnType: deprecated
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+
+BinPackArguments: true #proly gona delete them
+BinPackParameters: true
 
 BreakBeforeBraces: Custom
 BraceWrapping:
   AfterCaseLabel: true
+  AfterClass: true #brake on every class even empty ones
+  AfterControlStatement: Always
   AfterEnum: true
   AfterFunction: true
   AfterNamespace: true
+  AfterStruct: true
   AfterUnion: true
   AfterExternBlock: true
-
   BeforeCatch: true
   BeforeElse: true
   BeforeWhile: true
-
-  SplitEmptyRecord: false
+  IndentBraces: false
   SplitEmptyFunction: false
+  SplitEmptyRecord: false
   SplitEmptyNamespace: false
 
 BreakBeforeConceptDeclarations: true
 BreakBeforeTernaryOperators: true
-BreakConstructorInitializers: AfterColon
-AlwaysBreakTemplateDeclarations: Yes
+BreakConstructorInitializers: BeforeColon #related to packconstructorinit
+BreakInheritanceList: AfterComma
+
+ColumnLimit: 0
+
+CompactNamespaces: false
+
+#ConstructorInitializerAllOnOneLineOrOnePerLine: true #deprecated see packconstructorinit
+ConstructorInitializerIndentWidth: 4
+#PackConstructorInitializers: NextLine clang-14 :'(
+
+EmptyLineBeforeAccessModifier: LogicalBlock
+
 FixNamespaceComments: true
-IndentWrappedFunctionNames: true
+IndentAccessModifiers: true
+IndentCaseBlocks: true
+IndentCaseLabels: true
+IndentExternBlock: AfterExternBlock
+IndentGotoLabels: true
+
+IndentPPDirectives: None
+IndentRequires: true
+
 NamespaceIndentation: All
 
 PointerAlignment: Right
 
-SpaceAfterCStyleCast: false
-SpaceAfterLogicalNot: false
-SpaceAfterTemplateKeyword: true
+SortIncludes: CaseSensitive
+
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCaseColon: false
+SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: ControlStatements
-SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: true
 SpaceInEmptyParentheses: false
+SpaceAfterLogicalNot: false
