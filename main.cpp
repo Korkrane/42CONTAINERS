@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:32:14 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/07 19:20:55 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/12 19:41:00 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,26 +125,24 @@ void std_vec()
     cout << "Size : " << g1.size();
     cout << "\nCapacity : " << g1.capacity();
     cout << "\nMax_Size : " << g1.max_size();
-/*
-    // resizes the vector size to 4
-    g1.resize(4);
+    /*
+        // resizes the vector size to 4
+        g1.resize(4);
 
-    // prints the vector size after resize()
-    cout << "\nSize : " << g1.size();
+        // prints the vector size after resize()
+        cout << "\nSize : " << g1.size();
 
-    // checks if the vector is empty or not
-    if (g1.empty() == false)
-        cout << "\nVector is not empty";
-    else
-        cout << "\nVector is empty";
+        // checks if the vector is empty or not
+        if (g1.empty() == false)
+            cout << "\nVector is not empty";
+        else
+            cout << "\nVector is empty";
 
-    // Shrinks the vector
-    g1.shrink_to_fit();
-    cout << "\nVector elements are: ";
-    for (auto it = g1.begin(); it != g1.end(); it++)
-        cout << *it << " ";
-    cout << endl;
-*/
+        cout << "\nVector elements are: ";
+        for (auto it = g1.begin(); it != g1.end(); it++)
+            cout << *it << " ";
+        cout << endl;
+    */
     return;
 }
 
@@ -152,34 +150,32 @@ void ft_vec()
 {
     ft::vector<int> g1;
 
-    //for (int i = 1; i <= 5; i++)
-      //  g1.push_back(i);
+    // for (int i = 1; i <= 5; i++)
+    //   g1.push_back(i);
 
-/*
-    std::cout << "Size : " << g1.size();
-    std::cout << "\nCapacity : " << g1.capacity();
-    std::cout << "\nMax_Size : " << g1.max_size();
-*/
-/*
-    // resizes the vector size to 4
-    g1.resize(4);
+    /*
+        std::cout << "Size : " << g1.size();
+        std::cout << "\nCapacity : " << g1.capacity();
+        std::cout << "\nMax_Size : " << g1.max_size();
+    */
+    /*
+        // resizes the vector size to 4
+        g1.resize(4);
 
-    // prints the vector size after resize()
-    cout << "\nSize : " << g1.size();
+        // prints the vector size after resize()
+        cout << "\nSize : " << g1.size();
 
-    // checks if the vector is empty or not
-    if (g1.empty() == false)
-        cout << "\nVector is not empty";
-    else
-        cout << "\nVector is empty";
+        // checks if the vector is empty or not
+        if (g1.empty() == false)
+            cout << "\nVector is not empty";
+        else
+            cout << "\nVector is empty";
 
-    // Shrinks the vector
-    g1.shrink_to_fit();
-    cout << "\nVector elements are: ";
-    for (auto it = g1.begin(); it != g1.end(); it++)
-        cout << *it << " ";
-    cout << endl;
-*/
+        cout << "\nVector elements are: ";
+        for (auto it = g1.begin(); it != g1.end(); it++)
+            cout << *it << " ";
+        cout << endl;
+    */
     return;
 }
 int main()
@@ -190,7 +186,7 @@ int main()
     test_utility_lexico();
     test_utility_ftlexico();
     */
-   std_vec();
-   ft_vec();
+    std_vec();
+    ft_vec();
     return (0);
 }
