@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:48:50 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/07 22:16:42 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/12 15:29:25 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ namespace ft
             virtual ~bidirectional_iterator() { } // destructor
 
             bidirectional_iterator(const bidirectional_iterator<T> &other)
-                : _ptr(other.base())
-            { } // copy
+                : _ptr(other.base()) { } // copy
 
             bidirectional_iterator &operator=(const bidirectional_iterator<T> &other)
             {
@@ -78,9 +77,10 @@ namespace ft
             {
                 return *_ptr;
             }
-            pointer operator->()
+            pointer operator->() const
             {
-                return _ptr;
+                // return _ptr;
+                return &(operator*());
             }
     };
 
