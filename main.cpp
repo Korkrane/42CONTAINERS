@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:32:14 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/12 19:41:00 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/13 21:16:11 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 #include "./algorithm.hpp"
 #include "./iterator.hpp"
-#include "./map.hpp"
-#include "./stack.hpp"
+//#include "./map.hpp"
+//#include "./stack.hpp"
 #include "./type_traits.hpp"
 #include "./utility.hpp"
 #include "./vector.hpp"
@@ -31,8 +31,8 @@
 void test_utility_ftequal()
 {
     std::cout << "ft_test.\n";
-    int myints[] = {20, 40, 60, 80, 100};          //   myints: 20 40 60 80 100
-    std::vector<int> myvector(myints, myints + 5); // myvector: 20 40 60 80 100
+    int              myints[] = {20, 40, 60, 80, 100}; //   myints: 20 40 60 80 100
+    std::vector<int> myvector(myints, myints + 5);     // myvector: 20 40 60 80 100
 
     // using default comparison:
     if (ft::equal(myvector.begin(), myvector.end(), myints))
@@ -51,8 +51,8 @@ void test_utility_ftequal()
 
 void test_utility_equal()
 {
-    int myints[] = {20, 40, 60, 80, 100};          //   myints: 20 40 60 80 100
-    std::vector<int> myvector(myints, myints + 5); // myvector: 20 40 60 80 100
+    int              myints[] = {20, 40, 60, 80, 100}; //   myints: 20 40 60 80 100
+    std::vector<int> myvector(myints, myints + 5);     // myvector: 20 40 60 80 100
 
     // using default comparison:
     if (std::equal(myvector.begin(), myvector.end(), myints))
@@ -76,7 +76,7 @@ void test_utility_lexico()
 
     std::vector<std::string> v1(mystrings, mystrings + 3);
     std::vector<std::string> v2(mystrings2, mystrings2 + 3);
-    bool result;
+    bool                     result;
 
     result = std::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end());
 
@@ -98,7 +98,7 @@ void test_utility_ftlexico()
 
     std::vector<std::string> v1(mystrings, mystrings + 3);
     std::vector<std::string> v2(mystrings2, mystrings2 + 3);
-    bool result;
+    bool                     result;
 
     result = ft::lexicographical_compare(v1.begin(), v1.end(), v2.begin(), v2.end());
 
@@ -178,6 +178,48 @@ void ft_vec()
     */
     return;
 }
+
+void erase_vector()
+{
+    std::vector<int> stdvector;
+
+    std::cout << "stdvector size:" << stdvector.size() << std::endl;
+    // set some values (from 1 to 10)
+    for (int i = 1; i <= 10; i++)
+        stdvector.push_back(i);
+
+    // erase the 6th element
+    stdvector.erase(stdvector.begin());
+
+    // erase the first 3 elements:
+    // stdvector.erase(stdvector.begin(), stdvector.begin() + 3);
+    std::cout << "stdvector size:" << stdvector.size() << std::endl;
+    std::cout << "stdvector contains:";
+    for (unsigned i = 0; i < stdvector.size(); ++i)
+        std::cout << ' ' << stdvector[i];
+    std::cout << '\n';
+};
+
+void erase_ft_vector()
+{
+    ft::vector<int> ft_vector;
+    std::cout << "ft_vector size:" << ft_vector.size() << std::endl;
+    // set some values (from 1 to 10)
+    for (int i = 1; i <= 10; i++)
+        ft_vector.push_back(i);
+
+    // erase the 6th element
+    ft_vector.erase(ft_vector.begin());
+
+    // erase the first 3 elements:
+    // ft_vector.erase(ft_vector.begin(), ft_vector.begin() + 3);
+    std::cout << "ft_vector size:" << ft_vector.size() << std::endl;
+    std::cout << "ft_vector contains:";
+    for (int i = 0; i < ft_vector.size(); ++i)
+        std::cout << ' ' << ft_vector[i];
+    std::cout << '\n';
+};
+
 int main()
 {
     /*
@@ -186,7 +228,11 @@ int main()
     test_utility_lexico();
     test_utility_ftlexico();
     */
-    std_vec();
-    ft_vec();
+    // std_vec();
+    // ft_vec();
+    // std::map;
+    // std::stack;
+    erase_vector();
+    erase_ft_vector();
     return (0);
 }

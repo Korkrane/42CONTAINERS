@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:48:50 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/12 15:29:25 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/13 21:14:53 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ namespace ft
     class bidirectional_iterator : public ft::iterator<ft::bidirectional_iterator_tag, T>
     {
         public:
-            typedef T value_type;
-            typedef T *pointer;
-            typedef T &reference;
-            typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::difference_type difference_type;
+            typedef T                                                                           value_type;
+            typedef T                                                                          *pointer;
+            typedef T                                                                          &reference;
+            typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::difference_type   difference_type;
             typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::iterator_category iterator_category;
 
         protected:
@@ -65,7 +65,7 @@ namespace ft
             bidirectional_iterator &operator--() // pre
             {
                 --_ptr;
-                return *this
+                return *this;
             }
             bidirectional_iterator operator--(int) // post
             {

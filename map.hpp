@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:45:09 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 17:05:45 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/13 21:08:46 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
+#include "rbtree.hpp"
+#include "utility.hpp"
 // maps implementation : as BST --> RBTree.
 
 namespace ft
@@ -23,11 +25,11 @@ namespace ft
     class map
     {
         public:
-            typedef Key key_type;
-            typedef T mapped_type;
+            typedef Key                    key_type;
+            typedef T                      mapped_type;
             typedef ft::pair<const Key, T> value_type;
-            typedef Compare key_compare;
-            typedef Alloc allocator_type;
+            typedef Compare                key_compare;
+            typedef Alloc                  allocator_type;
 
             class value_compare : public std::binary_function<value_type, value_type, bool>
             {
@@ -48,14 +50,12 @@ namespace ft
 
         private:
             allocator_type _alloc;
-            Compare _comp;
-            _Rb_tree<value_type, Compare> _tree;
 
         public:
-            typedef typename allocator_type::reference reference;
+            typedef typename allocator_type::reference       reference;
             typedef typename allocator_type::const_reference const_reference;
-            typedef typename allocator_type::pointer pointer;
-            typedef typename allocator_type::const_pointer const_pointer;
+            typedef typename allocator_type::pointer         pointer;
+            typedef typename allocator_type::const_pointer   const_pointer;
             // typedef typename iterator;
             // typedef typename const_iterator;
             // typedef typename ft::reverse_iterator<iterator> reverse_iterator;
@@ -71,7 +71,7 @@ namespace ft
              * @param comp
              * @param alloc
              */
-            explicit map(const key_compare &comp     = key_compare(),
+            explicit map(const key_compare    &comp  = key_compare(),
                          const allocator_type &alloc = allocator_type()) // empty ctor // NOT FINISHED
                 {};
 
@@ -97,12 +97,12 @@ namespace ft
             map(const map &x) // copy ctor // NOT FINISHED
                 {};
 
-            /**
+            /**:
              * @brief Destroy the map object
              *
              */
             ~map() // dtor // NOT FINISHED
-                {};
+                {};:
 
             /**
              * @brief

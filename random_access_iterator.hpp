@@ -6,11 +6,11 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:35:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/12 15:29:21 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/13 20:54:10 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RANDOM_ACCES_ITERATOR_HPP
+#ifndef RANDOM_ACCESS_ITERATOR_HPP
 #define RANDOM_ACCESS_ITERATOR_HPP
 
 #include "bidirectional_iterator.hpp"
@@ -22,47 +22,55 @@ namespace ft
     class random_access_iterator : public ft::iterator<ft::random_acces_iterator_tag, T>
     {
         public:
-            typedef T value_type;
-            typedef T *pointer;
-            typedef T &reference;
-            typedef typename ft::iteartor<ft::bidirectional_iterator_tag, T>::difference_type difference_type;
-            typedef typename ft::iteartor<ft::bidirectional_iterator_tag, T>::iterator_category iterator_category;
+            typedef T                                                                           value_type;
+            typedef T                                                                          *pointer;
+            typedef T                                                                          &reference;
+            typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::difference_type   difference_type;
+            typedef typename ft::iterator<ft::bidirectional_iterator_tag, T>::iterator_category iterator_category;
+
+        private:
+            pointer _ptr;
 
         public:
-            random_acces_iterator()
+            random_access_iterator()
                 : _ptr(nullptr) { } /// default
 
-            virtual ~random_acces_iterator() { } // destructor
+            virtual ~random_access_iterator() { } // destructor
 
-            random_acces_iterator(const random_acces_iterator<T> &other)
+            pointer base() const
+            {
+                return (_ptr);
+            }
+
+            random_access_iterator(const ft::random_access_iterator<T> &other)
                 : _ptr(other.base()) { } // copy
 
-            random_acces_iterator &operator=(const random_acces_iterator<T> &other)
+            random_access_iterator &operator=(const ft::random_access_iterator<T> &other)
             {
                 if (this != &other)
                     _ptr = other.base();
                 return *this;
             } /// assignation
 
-            random_acces_iterator &operator++() // pre
+            random_access_iterator &operator++() // pre
             {
                 ++_ptr;
                 return *this;
             }
-            random_acces_iterator operator++(int) // post
+            random_access_iterator operator++(int) // post
             {
-                random_acces_iterator tmp = *this;
+                random_access_iterator tmp = *this;
                 ++_ptr;
                 return tmp;
             }
-            random_acces_iterator &operator--() // pre
+            random_access_iterator &operator--() // pre
             {
                 --_ptr;
-                return *this
+                return *this;
             }
-            random_acces_iterator operator--(int) // post
+            random_access_iterator operator--(int) // post
             {
-                random_acces_iterator tmp = *this;
+                random_access_iterator tmp = *this;
                 --_ptr;
                 return tmp;
             }
@@ -149,7 +157,7 @@ namespace ft
     template <class T>
     ft::random_access_iterator<T> operator+(
         typename ft::random_access_iterator<T>::difference_type n,
-        const ft::random_access_iterator<T> &it)
+        const ft::random_access_iterator<T>                    &it)
     {
         return it + n;
     }

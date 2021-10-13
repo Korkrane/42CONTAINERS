@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:52:43 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 14:46:41 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/13 20:08:01 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ namespace ft
     {
         public:
             typedef typename Container::value_type value_type;
-            typedef Container container_type;
-            typedef typename Container::size_type size_type;
+            typedef Container                      container_type;
+            typedef typename Container::size_type  size_type;
 
         protected:
             Container c;
@@ -49,7 +49,7 @@ namespace ft
                 return c.back();
             }
 
-            const value_type &top() // DONE
+            value_type &top() const // DONE
             {
                 return c.back();
             }
