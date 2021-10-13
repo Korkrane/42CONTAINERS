@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:34:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/12 19:38:41 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/13 14:29:11 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -396,8 +396,6 @@ namespace ft
             {
                 return _alloc;
             };
-
-            /// ***template specializations*** // NOT FINISHED
     };
 
     /// ***Non-member function overloads***
