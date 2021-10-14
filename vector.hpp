@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:34:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 21:08:47 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/14 19:52:13 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 #define VECTOR_HPP
 
 #include "algorithm.hpp" //lexico_compar
-#include "iterator.hpp"  //reverse_it
+#include "iterator.hpp"  //reverse_it //distance
 #include "random_access_iterator.hpp"
 #include "type_traits.hpp" //enable_if
 #include <iostream>        //std::allocator
-#include <memory>
 
 namespace ft
 {
@@ -26,19 +25,18 @@ namespace ft
     class vector
     {
         public:
-            typedef T                                        value_type;     // represents the data type stored
-            typedef Alloc                                    allocator_type; // represents the allocator class used
-            typedef typename allocator_type::reference       reference;
-            typedef typename allocator_type::const_reference const_reference;
-            typedef typename allocator_type::pointer         pointer;
-            typedef typename allocator_type::const_pointer   const_pointer;
-            typedef typename ft::random_access_iterator<T>   iterator;
-            // typedef typename ft::random_access_iterator<const T> const_iterator;
-            typedef typename ft::random_access_iterator<const value_type> const_iterator;
-            typedef typename ft::reverse_iterator<T>                      reverse_iterator;
-            typedef typename ft::reverse_iterator<const T>                const_reverse_iterator;
-            typedef typename allocator_type::size_type                    size_type;
-            typedef typename allocator_type::difference_type              difference_type;
+            typedef T                                                       value_type;     // represents the data type stored
+            typedef Alloc                                                   allocator_type; // represents the allocator class used
+            typedef typename allocator_type::reference                      reference;
+            typedef typename allocator_type::const_reference                const_reference;
+            typedef typename allocator_type::pointer                        pointer;
+            typedef typename allocator_type::const_pointer                  const_pointer;
+            typedef typename ft::random_access_iterator<value_type>         iterator;
+            typedef typename ft::random_access_iterator<const value_type>   const_iterator;
+            typedef typename ft::reverse_iterator<iterator>                 reverse_iterator;
+            typedef typename ft::reverse_iterator<const_iterator>           const_reverse_iterator;
+            typedef typename allocator_type::size_type                      size_type;
+            typedef typename ft::iterator_traits<iterator>::difference_type difference_type;
 
         protected:
             pointer        _start;
@@ -96,19 +94,20 @@ namespace ft
              */
             template <class InputIterator>
             vector(InputIterator first, InputIterator last,
-                   const allocator_type &alloc = allocator_type()) // DONE (NEED VERIF)
+                   const allocator_type &alloc                                                           = allocator_type(),
+                   typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type * = nullptr) // DONE (NEED VERIF) //enable_if allows the range creation :)
                 : _alloc(alloc),
                   _start(nullptr),
                   _end(nullptr),
                   _end_capacity(nullptr)
             {
-                difference_type n = std::distance(first, last);
+                difference_type n = ft::distance(first, last);
                 _start            = _alloc.allocate(n);
                 _end              = _start;
                 _end_capacity     = _start + n;
-                for (; first != last; first++)
+                for (InputIterator tmp = first; tmp != last; tmp++)
                 {
-                    _alloc.construct(_end, *first);
+                    _alloc.construct(_end, *tmp);
                     _end++;
                 }
             }
@@ -490,7 +489,6 @@ namespace ft
                     pointer         _old_start        = _start;
                     pointer         _old_end_capacity = _end_capacity;
                     const size_type _old_capacity     = capacity();
-
                     _start                            = _alloc.allocate(distance);
                     _end                              = _start;
                     _end_capacity                     = _start + distance;
@@ -572,7 +570,32 @@ namespace ft
              * @return iterator that points to the first of the newly inserted elements.
              */
             iterator insert(iterator position, const value_type &val) // single element insertion // NOT FINISHED
-                {};
+            {
+                /*
+                                if (_end != _end_capacity)
+                                {
+                                    if (&(*position) != end())
+                                    {
+                                        // _Alloc_traits::construct(this->_M_impl, this->_M_impl._M_finish, std::move(__v));
+                                        //++this->_M_impl._M_finish;
+                                    }
+                                    else
+                                    {
+                                        //_M_insert_aux(begin() + __n, std::move(__v));
+                                    }
+                                }
+                                else
+                                {
+                                    //_M_realloc_insert(begin() + __n, std::move(__v));
+                                }
+                                                    pointer _old_start        = _start;
+                                                    pointer _old_end          = _end;
+                                                    pointer _old_end_capacity = _end_capacity;
+
+                                                    _start                    = _alloc.allocate();
+                */
+                return iterator(_start);
+            };
 
             /**
              * @brief The vector is extended by inserting new elements before the element at the specified position,
@@ -585,7 +608,10 @@ namespace ft
              * @param val Value to be copied (or moved) to the inserted elements.
              */
             void insert(iterator position, size_type n, const value_type &val) // fill insertion // NOT FINISHED
-                {};
+            {
+                //_M_fill_insert(__position, __n, __x;
+                return;
+            };
 
             /**
              * @brief The vector is extended by inserting new elements before the element at the specified position,
@@ -601,7 +627,12 @@ namespace ft
             template <class InputIterator>
             void insert(iterator position, InputIterator first, InputIterator last,
                         typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type * = nullptr) // range insertion // NOT FINISHED
-                {};
+            {
+                // difference_type __offset = __position - cbegin();
+                //_M_insert_dispatch(begin() + __offset, __first, __last, __false_type());
+                // return begin() + __offset;
+                return;
+            };
 
             /**
              * @brief Removes from the vector a single element.
@@ -610,10 +641,18 @@ namespace ft
              * @param position Iterator pointing to a single element to be removed from the vector.
              * @return iterator pointing to the new location of the element that followed the last element erased by the function call.
              */
-            iterator erase(iterator position) // NOT FINISHED
+            iterator erase(iterator position) // DONE (need verif)
             {
-                pointer _p = &(*position);
-                _alloc.destroy(&(*position));
+                pointer _p = &(*position); // save the adress somewhere that we will return as an it
+
+                _alloc.destroy(&(*position));                        // destroy the desired element
+                for (pointer tmp = &(*position); tmp != _end; tmp++) // rebuild the elems located on the rigthside of the remove elem
+                {
+                    _alloc.construct(tmp, *(tmp + 1));
+                    _alloc.destroy(tmp + 1);
+                }
+                --_end;
+                return (iterator(_p));
             };
 
             /**
@@ -624,10 +663,23 @@ namespace ft
              * @param last the last element in the range.
              * @return iterator pointing to the new location of the element that followed the last element erased by the function call.
              */
-            iterator erase(iterator first, iterator last) // NOT FINISHED
-                {
+            iterator erase(iterator first, iterator last) // DONE (need verif)
+            {
+                pointer _p        = &(*first); // save the adress somewhere that we will return as an it
+                pointer tmp_first = &(*first);
+                pointer tmp_last  = &(*last);
 
-                };
+                for (; tmp_first != tmp_last; tmp_first++)
+                    _alloc.destroy(tmp_first); // destroy the desired element
+
+                for (pointer tmp = &(*first); tmp_last != _end; tmp++, tmp_last++)
+                {
+                    _alloc.construct(tmp, *tmp_last);
+                    _alloc.destroy(tmp_last);
+                }
+                _end -= &(*last) - &(*first);
+                return (iterator(_p));
+            };
 
             /**
              * @brief Exchanges the content of the container by the content of x, which is another

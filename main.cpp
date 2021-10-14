@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:32:14 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 21:16:11 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/14 19:16:15 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,14 +188,23 @@ void erase_vector()
     for (int i = 1; i <= 10; i++)
         stdvector.push_back(i);
 
+    // display begin element
+    std::cout << *stdvector.begin() << std::endl;
+
+    std::cout << "address of 6th elem: " << &stdvector[5] << std::endl;
+    std::cout << "value  of 6th elem: " << stdvector[5] << std::endl;
     // erase the 6th element
-    stdvector.erase(stdvector.begin());
+    // stdvector.erase(stdvector.begin() + 5);
+
+    std::cout << "value after function: " << *stdvector.erase(stdvector.begin() + 5) << std::endl;
+    std::cout << "address of 6th elem: " << &stdvector[5] << std::endl;
+    std::cout << "value  of 6th elem: " << stdvector[5] << std::endl;
 
     // erase the first 3 elements:
-    // stdvector.erase(stdvector.begin(), stdvector.begin() + 3);
+    stdvector.erase(stdvector.begin(), stdvector.begin() + 3);
     std::cout << "stdvector size:" << stdvector.size() << std::endl;
     std::cout << "stdvector contains:";
-    for (unsigned i = 0; i < stdvector.size(); ++i)
+    for (int i = 0; i < stdvector.size(); ++i)
         std::cout << ' ' << stdvector[i];
     std::cout << '\n';
 };
@@ -208,11 +217,19 @@ void erase_ft_vector()
     for (int i = 1; i <= 10; i++)
         ft_vector.push_back(i);
 
+    // display begin element
+    std::cout << *ft_vector.begin() << std::endl;
     // erase the 6th element
-    ft_vector.erase(ft_vector.begin());
+
+    std::cout << "address of 6th elem: " << &ft_vector[5] << std::endl;
+    std::cout << "value  of 6th elem: " << ft_vector[5] << std::endl;
+    ft_vector.erase(ft_vector.begin() + 5);
+
+    std::cout << "address of 6th elem: " << &ft_vector[5] << std::endl;
+    std::cout << "value  of 6th elem: " << ft_vector[5] << std::endl;
 
     // erase the first 3 elements:
-    // ft_vector.erase(ft_vector.begin(), ft_vector.begin() + 3);
+    ft_vector.erase(ft_vector.begin(), ft_vector.begin() + 3);
     std::cout << "ft_vector size:" << ft_vector.size() << std::endl;
     std::cout << "ft_vector contains:";
     for (int i = 0; i < ft_vector.size(); ++i)
@@ -220,6 +237,56 @@ void erase_ft_vector()
     std::cout << '\n';
 };
 
+void insert_vector()
+{
+    std::vector<int>           myvector(3, 100);
+    std::vector<int>::iterator it;
+
+    it = myvector.begin();
+    it = myvector.insert(it, 200);
+
+    myvector.insert(it, 2, 300);
+
+    // "it" no longer valid, get a new one:
+    it = myvector.begin();
+
+    std::vector<int> anothervector(2, 400);
+    myvector.insert(it + 2, anothervector.begin(), anothervector.end());
+
+    int myarray[] = {501, 502, 503};
+    myvector.insert(myvector.begin(), myarray, myarray + 3);
+
+    std::cout << "myvector contains:";
+    for (it = myvector.begin(); it < myvector.end(); it++)
+        std::cout << ' ' << *it;
+    std::cout << '\n';
+};
+
+void insert_ft_vector()
+{
+
+    ft::vector<int>           myvector(3, 100);
+    ft::vector<int>::iterator it;
+
+    it = myvector.begin();
+    it = myvector.insert(it, 200);
+
+    myvector.insert(it, 2, 300);
+
+    // "it" no longer valid, get a new one:
+    it = myvector.begin();
+
+    ft::vector<int> anothervector(2, 400);
+    myvector.insert(it + 2, anothervector.begin(), anothervector.end());
+
+    int myarray[] = {501, 502, 503};
+    myvector.insert(myvector.begin(), myarray, myarray + 3);
+
+    std::cout << "myvector contains:";
+    for (it = myvector.begin(); it < myvector.end(); it++)
+        std::cout << ' ' << *it;
+    std::cout << '\n';
+};
 int main()
 {
     /*
@@ -232,7 +299,11 @@ int main()
     // ft_vec();
     // std::map;
     // std::stack;
+    // std::vector;
     erase_vector();
     erase_ft_vector();
+    std::cout << "-----" << std::endl;
+    insert_vector();
+    insert_ft_vector();
     return (0);
 }
