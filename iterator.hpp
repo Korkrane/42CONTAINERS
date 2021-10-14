@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:31:53 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/14 16:09:17 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/14 19:11:05 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ namespace ft
     template <class T>
     struct iterator_traits<T *>
     {
-            typedef std::ptrdiff_t                 differencet_type;
+            typedef ptrdiff_t                      difference_type;
             typedef T                              value_type;
             typedef T                             *pointer;
             typedef T                             &reference;
@@ -63,12 +63,25 @@ namespace ft
     template <class T>
     struct iterator_traits<const T *>
     {
-            typedef std::ptrdiff_t                 differencet_type;
+            typedef ptrdiff_t                      difference_type;
             typedef T                              value_type;
             typedef T                             *pointer;
             typedef T                             &reference;
             typedef ft::random_access_iterator_tag iterator_category;
     };
+
+    template <class InputIterator>
+    typename ft::iterator_traits<InputIterator>::difference_type
+    distance(InputIterator first, InputIterator last)
+    {
+        typename ft::iterator_traits<InputIterator>::difference_type dist = 0;
+        while (first != last)
+        {
+            first++;
+            dist++;
+        }
+        return (dist);
+    }
 
     /**
      * @brief This is a base class template that can be used to derive iterator
