@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:31:53 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 20:07:16 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/14 16:09:17 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ namespace ft
     { };
     struct bidirectional_iterator_tag : public forward_iterator_tag
     { };
-    struct random_acces_iterator_tag : public bidirectional_iterator_tag
+    struct random_access_iterator_tag : public bidirectional_iterator_tag
     { };
 
     /**
@@ -50,11 +50,11 @@ namespace ft
     template <class T>
     struct iterator_traits<T *>
     {
-            typedef std::ptrdiff_t            differencet_type;
-            typedef T                         value_type;
-            typedef T                        *pointer;
-            typedef T                        &reference;
-            typedef random_acces_iterator_tag iterator_category;
+            typedef std::ptrdiff_t                 differencet_type;
+            typedef T                              value_type;
+            typedef T                             *pointer;
+            typedef T                             &reference;
+            typedef ft::random_access_iterator_tag iterator_category;
     };
 
     /**
@@ -63,11 +63,11 @@ namespace ft
     template <class T>
     struct iterator_traits<const T *>
     {
-            typedef std::ptrdiff_t            differencet_type;
-            typedef T                         value_type;
-            typedef T                        *pointer;
-            typedef T                        &reference;
-            typedef random_acces_iterator_tag iterator_category;
+            typedef std::ptrdiff_t                 differencet_type;
+            typedef T                              value_type;
+            typedef T                             *pointer;
+            typedef T                             &reference;
+            typedef ft::random_access_iterator_tag iterator_category;
     };
 
     /**

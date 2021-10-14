@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:35:39 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 20:54:10 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/14 16:54:09 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 namespace ft
 {
     template <typename T>
-    class random_access_iterator : public ft::iterator<ft::random_acces_iterator_tag, T>
+    class random_access_iterator : public ft::iterator<ft::random_access_iterator_tag, T>
     {
         public:
             typedef T                                                                           value_type;
@@ -39,11 +39,11 @@ namespace ft
 
             pointer base() const
             {
-                return (_ptr);
+                return _ptr;
             }
 
             random_access_iterator(const ft::random_access_iterator<T> &other)
-                : _ptr(other.base()) { } // copy
+                : _ptr(other._ptr) { } // copy
 
             random_access_iterator &operator=(const ft::random_access_iterator<T> &other)
             {
@@ -52,22 +52,29 @@ namespace ft
                 return *this;
             } /// assignation
 
+            random_access_iterator(pointer ptr) // new for .begin vector method.
+                : _ptr(ptr)
+            { }
+
             random_access_iterator &operator++() // pre
             {
                 ++_ptr;
                 return *this;
             }
+
             random_access_iterator operator++(int) // post
             {
                 random_access_iterator tmp = *this;
                 ++_ptr;
                 return tmp;
             }
+
             random_access_iterator &operator--() // pre
             {
                 --_ptr;
                 return *this;
             }
+
             random_access_iterator operator--(int) // post
             {
                 random_access_iterator tmp = *this;
@@ -96,6 +103,7 @@ namespace ft
                 _ptr -= n;
                 return (*this);
             }
+
             reference operator[](difference_type n)
             {
                 return (*(_ptr + n));
@@ -105,6 +113,7 @@ namespace ft
             {
                 return *_ptr;
             }
+
             pointer operator->() const
             {
                 // return _ptr;
