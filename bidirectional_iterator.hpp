@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:48:50 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/13 21:14:53 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/18 15:51:05 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ namespace ft
 
         public:
             bidirectional_iterator()
-                : _ptr(nullptr) { } /// default
+                : _ptr(ft_nullptr) { } /// default
 
             virtual ~bidirectional_iterator() { } // destructor
 

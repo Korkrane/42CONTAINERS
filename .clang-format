@@ -8,7 +8,7 @@ AlignAfterOpenBracket: Align #multiple ligne proto gonna indent second line arg 
 AlignArrayOfStructures: Right
 AlignConsecutiveAssignments: AcrossEmptyLines
 AlignConsecutiveBitFields: AcrossEmptyLines
-#AlignConsecutiveDeclarations: AcrossEmptyLines #fuck up my protos like this
+AlignConsecutiveDeclarations: Consecutive #fuck up my protos like this
 AlignConsecutiveMacros: AcrossEmptyLines
 AlignEscapedNewlines: Left
 #AlignOperands: not set yet
