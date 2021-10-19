@@ -6,7 +6,7 @@
 /*   By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 18:48:28 by bahaas            #+#    #+#             */
-/*   Updated: 2021/10/07 18:12:02 by bahaas           ###   ########.fr       */
+/*   Updated: 2021/10/18 17:57:24 by bahaas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ namespace ft
     struct is_integral<wchar_t> : public true_type
     { };
 
+	/*
     template <>
     struct is_integral<char16_t> : public true_type
     { };
@@ -94,6 +95,7 @@ namespace ft
     template <>
     struct is_integral<char32_t> : public true_type
     { };
+*/
 
     template <>
     struct is_integral<short> : public true_type
