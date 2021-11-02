@@ -6,15 +6,15 @@
 #    By: bahaas <bahaas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/21 19:25:36 by bahaas            #+#    #+#              #
-#    Updated: 2021/10/07 18:39:03 by bahaas           ###   ########.fr        #
+#    Updated: 2021/11/02 16:19:16 by bahaas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = containers
+NAME = ft_containers
 
 SRCS = main.cpp
 
-CC = clang++-13
+CC = clang++
 
 #CFLAGS = -Wextra -Werror -Wall -pedantic -g3 -std=c++98
 CFLAGS =  -pedantic -g3
