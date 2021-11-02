@@ -10,6 +10,7 @@ mkdir -p results
 cd results
 mkdir -p vector
 mkdir -p stack
+mkdir -p map
 cd ..
 echo -e "VECTOR TEST \t\t\t RESULTS\n"
 $CC $CFLAGS vector/ctor.cpp && ./a.out && sleep 0.25
@@ -46,3 +47,31 @@ $CC $CFLAGS stack/top.cpp && ./a.out && sleep 0.25
 $CC $CFLAGS stack/push.cpp && ./a.out && sleep 0.25
 $CC $CFLAGS stack/pop.cpp && ./a.out && sleep 0.25
 $CC $CFLAGS stack/relational_operators.cpp && ./a.out && sleep 0.25
+
+echo -e "\nMAP TEST \t\t\t RESULTS\n"
+$CC $CFLAGS map/ctor.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/begin.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/clear.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/count.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/empty.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/end.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/equal_range.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/erase.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/find.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/get_allocator.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/insert.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/key_comp.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/lower_bound.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/max_size.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/equal_operator.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/bracket_operator.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/rbegin.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/rend.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/size.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/swap.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/upper_bound.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/value_comp.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/relational_operators.cpp && ./a.out && sleep 0.25
+$CC $CFLAGS map/swap_2.cpp && ./a.out && sleep 0.25
+
+rm a.out
