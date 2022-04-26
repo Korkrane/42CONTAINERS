@@ -1,0 +1,58 @@
+srcs/vector/rite_error.cpp:34:43: error: no matching constructor for initialization of 'ft::vector<int>::reverse_iterator' (aka 'reverse_iterator<random_access_iterator<int> >')
+        NAMESPACE::vector<int>::reverse_iterator rit2(cit);
+                                                 ^    ~~~
+./../srcs/reverse_iterator.hpp:21:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'ft::vector<int>::const_iterator' (aka 'random_access_iterator<const int>') to 'const ft::reverse_iterator<ft::random_access_iterator<int> >' for 1st argument
+    class reverse_iterator
+          ^
+./../srcs/reverse_iterator.hpp:37:18: note: candidate constructor not viable: no known conversion from 'random_access_iterator<const int>' to 'random_access_iterator<int>' for 1st argument
+        explicit reverse_iterator(Iterator it) : _ptr(it) {}
+                 ^
+./../srcs/reverse_iterator.hpp:40:9: note: candidate template ignored: could not match 'reverse_iterator' against 'random_access_iterator'
+        reverse_iterator(reverse_iterator<U> const &rev_it)
+        ^
+./../srcs/reverse_iterator.hpp:36:9: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+        reverse_iterator() : _ptr() {}
+        ^
+srcs/vector/rite_error.cpp:35:35: error: no matching constructor for initialization of 'ft::vector<int>::iterator' (aka 'random_access_iterator<int>')
+        NAMESPACE::vector<int>::iterator it2(rit);
+                                         ^   ~~~
+./../srcs/random_access_iterator.hpp:40:3: note: candidate constructor not viable: no known conversion from 'ft::vector<int>::reverse_iterator' (aka 'reverse_iterator<random_access_iterator<int> >') to 'ft::random_access_iterator<int>::pointer' (aka 'int *') for 1st argument
+                random_access_iterator(pointer ptr)
+                ^
+./../srcs/random_access_iterator.hpp:43:3: note: candidate constructor not viable: no known conversion from 'ft::vector<int>::reverse_iterator' (aka 'reverse_iterator<random_access_iterator<int> >') to 'const random_access_iterator<int>' for 1st argument
+                random_access_iterator(random_access_iterator<T> const &cpy)
+                ^
+./../srcs/random_access_iterator.hpp:37:3: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+                random_access_iterator()
+                ^
+srcs/vector/rite_error.cpp:36:41: error: no matching constructor for initialization of 'ft::vector<int>::const_iterator' (aka 'random_access_iterator<const int>')
+        NAMESPACE::vector<int>::const_iterator cit2(crit);
+                                               ^    ~~~~
+./../srcs/random_access_iterator.hpp:40:3: note: candidate constructor not viable: no known conversion from 'ft::vector<int>::const_reverse_iterator' (aka 'reverse_iterator<random_access_iterator<const int> >') to 'ft::random_access_iterator<const int>::pointer' (aka 'const int *') for 1st argument
+                random_access_iterator(pointer ptr)
+                ^
+./../srcs/random_access_iterator.hpp:43:3: note: candidate constructor not viable: no known conversion from 'ft::vector<int>::const_reverse_iterator' (aka 'reverse_iterator<random_access_iterator<const int> >') to 'const random_access_iterator<const int>' for 1st argument
+                random_access_iterator(random_access_iterator<T> const &cpy)
+                ^
+./../srcs/random_access_iterator.hpp:37:3: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+                random_access_iterator()
+                ^
+In file included from srcs/vector/rite_error.cpp:13:
+In file included from srcs/vector/commun.hpp:4:
+In file included from ./../srcs/vector.hpp:19:
+./../srcs/reverse_iterator.hpp:41:15: error: no matching constructor for initialization of 'ft::random_access_iterator<int>'
+            : _ptr(rev_it.base()){};
+              ^    ~~~~~~~~~~~~~
+srcs/vector/rite_error.cpp:33:43: note: in instantiation of function template specialization 'ft::reverse_iterator<ft::random_access_iterator<int> >::reverse_iterator<ft::random_access_iterator<const int> >' requested here
+        NAMESPACE::vector<int>::reverse_iterator rit_(crit);
+                                                 ^
+./../srcs/random_access_iterator.hpp:40:3: note: candidate constructor not viable: no known conversion from 'ft::reverse_iterator<ft::random_access_iterator<const int> >::iterator_type' (aka 'ft::random_access_iterator<const int>') to 'ft::random_access_iterator<int>::pointer' (aka 'int *') for 1st argument
+                random_access_iterator(pointer ptr)
+                ^
+./../srcs/random_access_iterator.hpp:43:3: note: candidate constructor not viable: no known conversion from 'random_access_iterator<const int>' to 'const random_access_iterator<int>' for 1st argument
+                random_access_iterator(random_access_iterator<T> const &cpy)
+                ^
+./../srcs/random_access_iterator.hpp:37:3: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+                random_access_iterator()
+                ^
+4 errors generated.

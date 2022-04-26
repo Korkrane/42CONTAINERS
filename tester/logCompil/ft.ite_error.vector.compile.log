@@ -1,0 +1,7 @@
+srcs/vector/ite_error.cpp:32:7: error: cannot assign to return value because function 'operator*' returns a const value
+        *ite = 42; // < -- error
+        ~~~~ ^
+./../srcs/random_access_iterator.hpp:82:3: note: function 'operator*' which returns const-qualified type 'ft::random_access_iterator<const int>::reference' (aka 'const int &') declared here
+                reference operator*()
+                ^~~~~~~~~
+1 error generated.

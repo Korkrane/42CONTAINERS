@@ -1,0 +1,4 @@
+foo contains: 200 200 200 200 200
+bar contains: 100 100 100
+it_foo value: 100 should remain 100
+it_bar value: 200 should remain 200

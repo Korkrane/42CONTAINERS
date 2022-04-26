@@ -1,0 +1,7 @@
+srcs/vector/ite_error.cpp:32:7: error: cannot assign to return value because function 'operator*' returns a const value
+        *ite = 42; // < -- error
+        ~~~~ ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:794:7: note: function 'operator*' which returns const-qualified type '__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >::reference' (aka 'const int &') declared here
+      reference
+      ^~~~~~~~~
+1 error generated.

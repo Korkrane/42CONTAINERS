@@ -1,0 +1,7 @@
+srcs/set/ite_error.cpp:27:7: error: cannot assign to return value because function 'operator*' returns a const value
+        *ite = 42; // < -- error expected
+        ~~~~ ^
+./../srcs/bidirectional_iterator.hpp:68:13: note: function 'operator*' which returns const-qualified type 'ft::bidirectional_iterator<const int, const ft::Node<int> >::reference' (aka 'const int &') declared here
+            reference       operator*()       { return _ptr->data;}
+            ^~~~~~~~~
+1 error generated.

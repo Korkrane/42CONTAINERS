@@ -1,0 +1,64 @@
+srcs/vector/rite_error.cpp:34:43: error: no matching constructor for initialization of 'std::vector<int>::reverse_iterator' (aka 'reverse_iterator<__normal_iterator<int *, std::vector<int, std::allocator<int> > > >')
+        NAMESPACE::vector<int>::reverse_iterator rit2(cit);
+                                                 ^    ~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:133:7: note: candidate constructor not viable: no known conversion from '__normal_iterator<std::vector<int, std::allocator<int> >::const_pointer, [...]>' to '__normal_iterator<int *, [...]>' for 1st argument
+      reverse_iterator(iterator_type __x) : current(__x) { }
+      ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:139:7: note: candidate constructor not viable: no known conversion from 'std::vector<int>::const_iterator' (aka '__normal_iterator<const int *, std::vector<int, std::allocator<int> > >') to 'const std::reverse_iterator<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > >' for 1st argument
+      reverse_iterator(const reverse_iterator& __x)
+      ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:148:9: note: candidate template ignored: could not match 'reverse_iterator' against '__normal_iterator'
+        reverse_iterator(const reverse_iterator<_Iter>& __x)
+        ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:127:7: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      reverse_iterator() : current() { }
+      ^
+srcs/vector/rite_error.cpp:35:35: error: no matching constructor for initialization of 'std::vector<int>::iterator' (aka '__normal_iterator<int *, std::vector<int, std::allocator<int> > >')
+        NAMESPACE::vector<int>::iterator it2(rit);
+                                         ^   ~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:763:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'std::vector<int>::reverse_iterator' (aka 'reverse_iterator<__normal_iterator<int *, std::vector<int, std::allocator<int> > > >') to 'const __gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >' for 1st argument
+    class __normal_iterator
+          ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:782:7: note: candidate constructor not viable: no known conversion from 'std::vector<int>::reverse_iterator' (aka 'reverse_iterator<__normal_iterator<int *, std::vector<int, std::allocator<int> > > >') to 'int *const' for 1st argument
+      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
+      ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:787:9: note: candidate template ignored: could not match '__normal_iterator' against 'reverse_iterator'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:778:26: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      _GLIBCXX_CONSTEXPR __normal_iterator() _GLIBCXX_NOEXCEPT
+                         ^
+srcs/vector/rite_error.cpp:36:41: error: no matching constructor for initialization of 'std::vector<int>::const_iterator' (aka '__normal_iterator<const int *, std::vector<int, std::allocator<int> > >')
+        NAMESPACE::vector<int>::const_iterator cit2(crit);
+                                               ^    ~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:763:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'std::vector<int>::const_reverse_iterator' (aka 'reverse_iterator<__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >') to 'const __gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >' for 1st argument
+    class __normal_iterator
+          ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:782:7: note: candidate constructor not viable: no known conversion from 'std::vector<int>::const_reverse_iterator' (aka 'reverse_iterator<__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >') to 'const int *const' for 1st argument
+      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
+      ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:787:9: note: candidate template ignored: could not match '__normal_iterator' against 'reverse_iterator'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:778:26: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      _GLIBCXX_CONSTEXPR __normal_iterator() _GLIBCXX_NOEXCEPT
+                         ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:149:4: error: no matching constructor for initialization of '__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > >'
+        : current(__x.base()) { }
+          ^       ~~~~~~~~~~
+srcs/vector/rite_error.cpp:33:43: note: in instantiation of function template specialization 'std::reverse_iterator<__gnu_cxx::__normal_iterator<int *, std::vector<int, std::allocator<int> > > >::reverse_iterator<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >' requested here
+        NAMESPACE::vector<int>::reverse_iterator rit_(crit);
+                                                 ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:763:11: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from '__normal_iterator<const int *, [...]>' to 'const __normal_iterator<int *, [...]>' for 1st argument
+    class __normal_iterator
+          ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:782:7: note: candidate constructor not viable: no known conversion from 'std::reverse_iterator<__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > > >::iterator_type' (aka '__gnu_cxx::__normal_iterator<const int *, std::vector<int, std::allocator<int> > >') to 'int *const' for 1st argument
+      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
+      ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:787:9: note: candidate template ignored: substitution failure [with _Iter = const int *]: no type named '__type' in '__gnu_cxx::__enable_if<false, std::vector<int, std::allocator<int> > >'
+        __normal_iterator(const __normal_iterator<_Iter,
+        ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:778:26: note: candidate constructor not viable: requires 0 arguments, but 1 was provided
+      _GLIBCXX_CONSTEXPR __normal_iterator() _GLIBCXX_NOEXCEPT
+                         ^
+4 errors generated.

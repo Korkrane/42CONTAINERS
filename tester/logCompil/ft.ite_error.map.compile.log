@@ -1,0 +1,31 @@
+srcs/map/ite_error.cpp:29:37: error: no viable conversion from 'bidirectional_iterator<const pair<...>, const Node<...>>' to 'bidirectional_iterator<pair<...>, Node<...>>'
+        NAMESPACE::map<int, int>::iterator it = mp.begin(); // <-- error expected
+                                           ^    ~~~~~~~~~~
+./../srcs/bidirectional_iterator.hpp:47:13: note: candidate constructor not viable: no known conversion from 'ft::map<int, int, std::less<int>, std::allocator<ft::pair<const int, int> > >::const_iterator' (aka 'bidirectional_iterator<const pair<const int, int>, const Node<pair<const int, int> > >') to 'const ft::bidirectional_iterator<ft::pair<const int, int>, ft::Node<ft::pair<const int, int> > > &' for 1st argument
+            bidirectional_iterator(const bidirectional_iterator &cpy):_ptr(cpy._ptr), _root(cpy._root), _nill(cpy._nill){} //copy
+            ^
+./../srcs/bidirectional_iterator.hpp:51:13: note: candidate function
+            operator bidirectional_iterator<const value_type, const node_type>()const
+            ^
+srcs/map/ite_error.cpp:37:19: error: invalid operands to binary expression ('ft::map<char, int>::iterator' (aka 'bidirectional_iterator<pair<const char, int>, Node<pair<const char, int> > >') and 'ft::map<char, float>::const_iterator' (aka 'bidirectional_iterator<const pair<const char, float>, const Node<pair<const char, float> > >'))
+        std::cout << (it != ite) << std::endl; // <-- error expected
+                      ~~ ^  ~~~
+./../srcs/bidirectional_iterator.hpp:110:18: note: candidate function not viable: no known conversion from 'bidirectional_iterator<const pair<[...], ft::map<char, float, std::less<char>, std::allocator<ft::pair<const char, float> > >::mapped_type>, const Node<pair<[...], ft::map<char, float, std::less<char>, std::allocator<ft::pair<const char, float> > >::mapped_type>>>' to 'const bidirectional_iterator<pair<[...], int>, Node<pair<[...], int>>>' for 1st argument
+            bool operator!=(const bidirectional_iterator &lhs) {return _ptr != lhs._ptr;}
+                 ^
+./../srcs/bidirectional_iterator.hpp:117:25: note: candidate template ignored: could not match 'Node<type-parameter-0-1>' against 'const Node<ft::pair<const char, float>>'
+            friend bool operator!=(ft::bidirectional_iterator<Iter1, Node<Iter1> > const &lhs, ft::bidirectional_iterator<Iter2, Node<Iter2> > const &rhs);
+                        ^
+./../srcs/reverse_iterator.hpp:150:10: note: candidate template ignored: could not match 'reverse_iterator' against 'bidirectional_iterator'
+    bool operator!=(const reverse_iterator<Iterator> &lhs, const reverse_iterator<Iterator> &rhs)
+         ^
+./../srcs/reverse_iterator.hpp:186:10: note: candidate template ignored: could not match 'reverse_iterator' against 'bidirectional_iterator'
+    bool operator!=(const reverse_iterator<Iterator1> &lhs, const reverse_iterator<Iterator2> &rhs)
+         ^
+./../srcs/pair.hpp:75:18: note: candidate template ignored: could not match 'pair' against 'bidirectional_iterator'
+            bool operator!= (const pair<T1,T2>& lhs, const pair<T1,T2>& rhs)
+                 ^
+./../srcs/map.hpp:290:10: note: candidate template ignored: could not match 'map' against 'bidirectional_iterator'
+    bool operator!=(const map<Key, T, Compare, Alloc> &lhs, const map<Key, T, Compare, Alloc> &rhs)
+         ^
+2 errors generated.

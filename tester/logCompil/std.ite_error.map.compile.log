@@ -1,0 +1,55 @@
+srcs/map/ite_error.cpp:29:37: error: no viable conversion from 'std::map<int, int, std::less<int>, std::allocator<std::pair<const int, int> > >::const_iterator' (aka '_Rb_tree_const_iterator<std::pair<const int, int> >') to 'std::map<int, int>::iterator' (aka '_Rb_tree_iterator<std::pair<const int, int> >')
+        NAMESPACE::map<int, int>::iterator it = mp.begin(); // <-- error expected
+                                           ^    ~~~~~~~~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_tree.h:256:12: note: candidate constructor (the implicit copy constructor) not viable: no known conversion from 'std::map<int, int, std::less<int>, std::allocator<std::pair<const int, int> > >::const_iterator' (aka '_Rb_tree_const_iterator<std::pair<const int, int> >') to 'const std::_Rb_tree_iterator<std::pair<const int, int> > &' for 1st argument
+    struct _Rb_tree_iterator
+           ^
+srcs/map/ite_error.cpp:37:19: error: invalid operands to binary expression ('std::map<char, int>::iterator' (aka '_Rb_tree_iterator<std::pair<const char, int> >') and 'std::map<char, float>::const_iterator' (aka '_Rb_tree_const_iterator<std::pair<const char, float> >'))
+        std::cout << (it != ite) << std::endl; // <-- error expected
+                      ~~ ^  ~~~
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_tree.h:319:7: note: candidate function not viable: no known conversion from 'std::map<char, float>::const_iterator' (aka '_Rb_tree_const_iterator<std::pair<const char, float> >') to 'const std::_Rb_tree_iterator<std::pair<const char, int> >::_Self' (aka 'const _Rb_tree_iterator<std::pair<const char, int> >') for 1st argument
+      operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT
+      ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_tree.h:412:5: note: candidate template ignored: deduced conflicting types for parameter '_Val' ('pair<[...], int>' vs. 'pair<[...], float>')
+    operator!=(const _Rb_tree_iterator<_Val>& __x,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/postypes.h:221:5: note: candidate template ignored: could not match 'fpos' against '_Rb_tree_iterator'
+    operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_pair.h:461:5: note: candidate template ignored: could not match 'pair' against '_Rb_tree_iterator'
+    operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:314:5: note: candidate template ignored: could not match 'reverse_iterator' against '_Rb_tree_iterator'
+    operator!=(const reverse_iterator<_Iterator>& __x,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_iterator.h:352:5: note: candidate template ignored: could not match 'reverse_iterator' against '_Rb_tree_iterator'
+    operator!=(const reverse_iterator<_IteratorL>& __x,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocator.h:158:5: note: candidate template ignored: could not match 'allocator' against '_Rb_tree_iterator'
+    operator!=(const allocator<_T1>&, const allocator<_T2>&)
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/allocator.h:164:5: note: candidate template ignored: could not match 'allocator' against '_Rb_tree_iterator'
+    operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/basic_string.h:6056:5: note: candidate template ignored: could not match 'basic_string' against '_Rb_tree_iterator'
+    operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/basic_string.h:6069:5: note: candidate template ignored: could not match 'const _CharT *' against 'std::map<char, int>::iterator' (aka '_Rb_tree_iterator<std::pair<const char, int> >')
+    operator!=(const _CharT* __lhs,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/basic_string.h:6081:5: note: candidate template ignored: could not match 'basic_string' against '_Rb_tree_iterator'
+    operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/streambuf_iterator.h:210:5: note: candidate template ignored: could not match 'istreambuf_iterator' against '_Rb_tree_iterator'
+    operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_tree.h:1553:5: note: candidate template ignored: could not match '_Rb_tree' against '_Rb_tree_iterator'
+    operator!=(const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __x,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_map.h:1418:5: note: candidate template ignored: could not match 'map' against '_Rb_tree_iterator'
+    operator!=(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+    ^
+/usr/bin/../lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/bits/stl_multimap.h:1083:5: note: candidate template ignored: could not match 'multimap' against '_Rb_tree_iterator'
+    operator!=(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+    ^
+2 errors generated.
